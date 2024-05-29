@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --color-moderate-violet: hsl(263, 55%, 52%);
+  --color-dark-grayish-blue: hsl(217, 19%, 35%);
+  --color-blackish-blue: hsl(219, 29%, 14%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --color-light-gray: hsl(0, 0%, 81%);
+  --color-grayish-blue: hsl(210, 46%, 95%);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Barlow Semi Condensed";
+  background-color: var(--color-grayish-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 13px;
+}
+
+section {
+  display: grid;
+  max-width: 1200px;
+  grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
+  grid-template-rows: repeat(2, [row-start] min-content [row-end]);
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  color: var(--color-white);
+  padding: 2.5rem 3rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+.photo {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+img {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid var(--color-white);
+}
+.photo__content {
+  line-height: 1.4;
+}
+.photo__name {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.status {
+  opacity: 0.5;
+}
+.heading {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 1rem 0;
+}
+.comment {
+  line-height: 1.4;
+  opacity: 0.7;
+  font-size: 1.3rem;
+  color: var(--color-white);
+}
+.comment-1 {
+  background-color: var(--color-moderate-violet);
+  grid-row: row-start 1 / row-end 1;
+  grid-column: col-start 1 / col-end 2;
+  background-image: url("./images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: 88% 0;
+}
+.comment-2 {
+  background-color: var(--color-dark-grayish-blue);
+  grid-row: row-start 1 / row-end 1;
+  grid-column: col-start 3 / col-end 3;
+}
+.comment-4 {
+  background-color: var(--color-blackish-blue);
+  grid-row: row-start 2 / row-end 2;
+  grid-column: col-start 2 / col-end 3;
+}
+.comment-3 {
+  background-color: var(--color-white);
+  grid-row: row-start 2 / row-end 2;
+  grid-column: col-start 1 / col-end 1;
+  color: var(--color-dark-grayish-blue);
+}
+.comment-3 .comment {
+  color: var(--color-dark-grayish-blue);
+}
+.comment-3 .heading {
+  color: var(---color-dark-grayish-blue);
+}
+.comment-3 .comment {
+  color: var(---color-dark-grayish-blue);
+}
+.comment-5 {
+  background-color: var(--color-white);
+  grid-row: row-start 1 / row-end 2;
+  grid-column: col-start 4 / col-end 4;
+  color: var(--color-dark-grayish-blue);
+}
+.comment-5 .heading {
+  color: var(--color-dark-grayish-blue);
+}
+.comment-5 .comment {
+  color: var(--color-dark-grayish-blue);
+}
+
+@media screen and (max-width: 1024px) {
+  section {
+    grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+    grid-template-rows: repeat(3, [row-start] min-content [row-end]);
+    gap: 1.5rem;
+    padding: 2rem;
+    width: 95%;
+  }
+  .comment-2 {
+    grid-row: row-start 1 / row-end 1;
+    grid-column: col-start 3 / col-end 3;
+  }
+  .comment-3 {
+    grid-row: row-start 2 / row-end 2;
+    grid-column: col-start 1 / col-end 1;
+  }
+  .comment-4 {
+    grid-row: row-start 2 / row-end 2;
+    grid-column: col-start 2 / col-end 3;
+  }
+  .comment-5 {
+    grid-row: row-start 3 / row-end 3;
+    grid-column: col-start 1 / col-end 3;
+  }
+}
+@media screen and (max-width: 768px) {
+  section {
+    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(90%, 1fr));
+    grid-template-rows: minmax (auto, auto);
+  }
+  .card {
+    grid-column: unset !important;
+    grid-row: unset !important;
+  }
+}
